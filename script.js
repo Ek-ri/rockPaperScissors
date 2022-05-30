@@ -10,8 +10,7 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection = computerPlay()) {
-    const playerPick = playerSelection.toUpperCase();
-    console.log(playerPick);
+    let playerPick = playerSelection.toUpperCase();
     if (playerPick === 'ROCK' && computerSelection === 'ROCK') {
         return 'The match is a tie!';
     } else if (playerPick === 'ROCK' && computerSelection === 'PAPER') {
@@ -30,5 +29,12 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
         return 'You lose! Rock beats Scissors.';
     } else if (playerPick === 'SCISSORS' && computerSelection === 'SCISSORS') {
         return 'The match is a tie!';
+    }
+}
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let pick = prompt('Pick rock, paper, or scissors!');
+        alert(playRound(pick));  
     }
 }

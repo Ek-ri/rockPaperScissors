@@ -40,6 +40,7 @@ let count = 0;
 const buttons = document.querySelectorAll('button');
 const results = document.querySelector('#results');
 const scores = document.querySelector('#scores')
+const gametrack = document.querySelector('#gametrack')
 //const scoreboard = document.createElement('h1');
 //scoreboard.classList.add('scoreboard');
 //scoreboard.textContent = 'Scoreboard'
@@ -58,7 +59,7 @@ buttons.forEach((button) => {
         //console.log(typeof(result)); //string
         const p = document.createElement('p');
         p.textContent = result;
-        results.appendChild(p);
+        gametrack.appendChild(p);
         if (result.startsWith('You win')) {
             playerPoint();
         } else if (result.startsWith('You lose')) {
@@ -90,7 +91,7 @@ function gameOver () {
 
 function removeClutter () {
     while (count > 0) {
-        results.removeChild(results.lastChild);
+        gametrack.removeChild(gametrack.lastChild);
         count--;
     }
     playerScore = 0;

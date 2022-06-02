@@ -83,18 +83,25 @@ buttons.forEach((button) => {
 
 function gameOver () {
     if (playerScore === 5) {
-        while (count > 0) {
-            results.removeChild(results.lastChild);
-            count--;
-        }
-        playerScore = 0;
-        computerScore = 0;
-        document.getElementById('scores').innerHTML = 
-            'Player Score: ' + playerScore + ' Computer Score: ' +
-            computerScore;
+        removeClutter();
+        alert('You have won!')
+    } else if (computerScore === 5) {
+        removeClutter();
+        alert('You have lost!')
     }
 }
 
+function removeClutter () {
+    while (count > 0) {
+        results.removeChild(results.lastChild);
+        count--;
+    }
+    playerScore = 0;
+    computerScore = 0;
+    document.getElementById('scores').innerHTML = 
+        'Player Score: ' + playerScore + ' Computer Score: ' +
+        computerScore;
+}
 
 /*function addResult() {
     const result = playRound(button.id)

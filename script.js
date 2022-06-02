@@ -76,9 +76,15 @@ buttons.forEach((button) => {
 function gameOver () {
     if (playerScore === 5) {
         removeClutter();
+        tie = 0;
+        document.getElementById('ties').innerHTML =
+        'Ties: ' + tie;
         alert('You have won!')
     } else if (computerScore === 5) {
         removeClutter();
+        tie = 0;
+        document.getElementById('ties').innerHTML =
+        'Ties: ' + tie;
         alert('You have lost!')
     }
 }

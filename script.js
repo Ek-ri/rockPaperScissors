@@ -40,11 +40,10 @@ let count = 0;
 const buttons = document.querySelectorAll('button');
 const results = document.querySelector('#results');
 const scores = document.querySelector('#scores')
-
-const scoreboard = document.createElement('h1');
-scoreboard.classList.add('scoreboard');
-scoreboard.textContent = 'Scoreboard'
-results.appendChild(scoreboard);
+//const scoreboard = document.createElement('h1');
+//scoreboard.classList.add('scoreboard');
+//scoreboard.textContent = 'Scoreboard'
+//results.appendChild(scoreboard);
 
 document.getElementById('playerscores').textContent = 
 "Player Score: 0"

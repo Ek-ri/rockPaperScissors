@@ -43,6 +43,13 @@ let playerScore = 0;
 let computerScore = 0;
 
 const buttons = document.querySelectorAll('button');
+const results = document.querySelector('#results');
+const scores = document.querySelector('#scores')
+
+const scoreboard = document.createElement('h1');
+scoreboard.classList.add('scoreboard');
+scoreboard.textContent = 'Scoreboard'
+results.appendChild(scoreboard);
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -54,9 +61,15 @@ buttons.forEach((button) => {
         if (result.startsWith('You win')) {
             playerScore += 1;
             console.log(playerScore);
+            document.getElementById('scores').innerHTML = 
+            'Player Score: ' + playerScore + ' Computer Score: ' +
+            computerScore;
         } else if (result.startsWith('You lose')) {
             computerScore += 1;
             console.log(computerScore);
+            document.getElementById('scores').innerHTML = 
+            'Player Score: ' + playerScore + ' Computer Score: ' +
+            computerScore;
         }
     })
 })
@@ -67,9 +80,4 @@ buttons.forEach((button) => {
 
 
 
-const results = document.querySelector('#results');
 
-const scoreboard = document.createElement('h1');
-scoreboard.classList.add('scoreboard');
-scoreboard.textContent = 'Scoreboard'
-results.appendChild(scoreboard);

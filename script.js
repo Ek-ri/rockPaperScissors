@@ -32,13 +32,6 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
     }
 }
 
-function game() {
-    //for (let i = 0; i < 5; i++) {
-        let pick = prompt('Pick rock, paper, or scissors!');
-        alert(playRound(pick));  
-    //}
-}
-
 let playerScore = 0;
 let computerScore = 0;
 let tie = 0;
@@ -52,6 +45,13 @@ const scoreboard = document.createElement('h1');
 scoreboard.classList.add('scoreboard');
 scoreboard.textContent = 'Scoreboard'
 results.appendChild(scoreboard);
+
+document.getElementById('playerscores').textContent = 
+"Player Score: 0"
+document.getElementById('computerscores').textContent = 
+"Computer Score: 0"
+document.getElementById('ties').textContent = 
+"Ties: 0"
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -67,6 +67,8 @@ buttons.forEach((button) => {
         } else {
             tie += 1;
             count += 1;
+            document.getElementById('ties').innerHTML = 
+            "Ties: " + tie;
         }
     })
 })
@@ -88,18 +90,18 @@ function removeClutter () {
     }
     playerScore = 0;
     computerScore = 0;
-    document.getElementById('scores').innerHTML = 
-        'Player Score: ' + playerScore + ' Computer Score: ' +
-        computerScore;
+    document.getElementById('playerscores').innerHTML = 
+        'Player Score: ' + playerScore;
+    document.getElementById('computerscores').innerHTML =
+        'Computer Score: ' + computerScore;   
 }
 
 function computerPoint () {
     computerScore += 1;
     count += 1;
     console.log(computerScore);
-    document.getElementById('scores').innerHTML = 
-    'Player Score: ' + playerScore + ' Computer Score: ' +
-    computerScore + ' Ties: ' + tie;
+    document.getElementById('computerscores').innerHTML =
+    'Computer Score: ' + computerScore;
     gameOver();
 }
 
@@ -107,15 +109,10 @@ function playerPoint () {
     playerScore += 1;
     count += 1;
     console.log(playerScore);
-    document.getElementById('scores').innerHTML = 
-    'Player Score: ' + playerScore + ' Computer Score: ' +
-    computerScore + ' Ties: ' + tie;
+    document.getElementById('playerscores').innerHTML = 
+    'Player Score: ' + playerScore;
     gameOver();
 }
-
-/*function addResult() {
-    const result = playRound(button.id)
-}*/
 
 
 

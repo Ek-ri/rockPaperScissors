@@ -1,3 +1,8 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
@@ -6,11 +11,27 @@
     margin-top: 24px;
 }
 
-
 #results {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 24px;
+}
+
+#results div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 24px;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+#rock,
+#paper,
+#scissors {
+    font-size: 24px;
+    padding: 12px;
+    background-color: bisque;
+    color: black;
+    border-radius: 4px;
 }

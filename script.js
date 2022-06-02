@@ -41,6 +41,7 @@ function game() {
 
 let playerScore = 0;
 let computerScore = 0;
+let count = 0;
 
 const buttons = document.querySelectorAll('button');
 const results = document.querySelector('#results');
@@ -60,19 +61,40 @@ buttons.forEach((button) => {
         results.appendChild(p);
         if (result.startsWith('You win')) {
             playerScore += 1;
+            count += 1;
             console.log(playerScore);
             document.getElementById('scores').innerHTML = 
             'Player Score: ' + playerScore + ' Computer Score: ' +
             computerScore;
+            gameOver();
         } else if (result.startsWith('You lose')) {
             computerScore += 1;
+            count += 1;
             console.log(computerScore);
             document.getElementById('scores').innerHTML = 
             'Player Score: ' + playerScore + ' Computer Score: ' +
             computerScore;
+            gameOver();
+        } else {
+            count += 1;
         }
     })
 })
+
+function gameOver () {
+    if (playerScore === 5) {
+        while (count > 0) {
+            results.removeChild(results.lastChild);
+            count--;
+        }
+        playerScore = 0;
+        computerScore = 0;
+        document.getElementById('scores').innerHTML = 
+            'Player Score: ' + playerScore + ' Computer Score: ' +
+            computerScore;
+    }
+}
+
 
 /*function addResult() {
     const result = playRound(button.id)

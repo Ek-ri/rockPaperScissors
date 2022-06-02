@@ -33,8 +33,16 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
+    //for (let i = 0; i < 5; i++) {
         let pick = prompt('Pick rock, paper, or scissors!');
         alert(playRound(pick));  
-    }
+    //}
 }
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert(playRound(button.id, computerPlay()));
+    })
+})

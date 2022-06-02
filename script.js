@@ -39,10 +39,37 @@ function game() {
     //}
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        alert(playRound(button.id, computerPlay()));
+        result = (playRound(button.id, computerPlay()));
+        //console.log(typeof(result)); //string
+        const p = document.createElement('p');
+        p.textContent = result;
+        results.appendChild(p);
+        if (result.startsWith('You win')) {
+            playerScore += 1;
+            console.log(playerScore);
+        } else if (result.startsWith('You lose')) {
+            computerScore += 1;
+            console.log(computerScore);
+        }
     })
 })
+
+/*function addResult() {
+    const result = playRound(button.id)
+}*/
+
+
+
+const results = document.querySelector('#results');
+
+const scoreboard = document.createElement('h1');
+scoreboard.classList.add('scoreboard');
+scoreboard.textContent = 'Scoreboard'
+results.appendChild(scoreboard);
